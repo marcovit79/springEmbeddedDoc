@@ -1,0 +1,102 @@
+{
+  "ExternalSystem": {
+    "position": {
+      "x": 561,
+      "y": 31
+    }
+  },
+  "SourceRepoGatheredInfo": {
+    "position": {
+      "x": 458,
+      "y": 1227
+    }
+  },
+  "DynaGatheredInfo": {
+    "position": {
+      "x": 1141,
+      "y": 1299
+    }
+  },
+  "BaseComment": {
+    "position": {
+      "x": 1792,
+      "y": 1023
+    },
+    "relations": {
+      "replyTo": [
+        {
+          "x": 1915,
+          "y": 1298
+        },
+        {
+          "x": 1671,
+          "y": 1298
+        },
+        {
+          "x": 1660,
+          "y": 1109
+        }
+      ]
+    }
+  },
+  "BaseMentionRef": {
+    "position": {
+      "x": 2175,
+      "y": 1070
+    }
+  },
+  "ProjectsHub": {
+    "position": {
+      "x": 1088,
+      "y": 320
+    }
+  },
+  "Product": {
+    "position": {
+      "x": 469,
+      "y": 813
+    }
+  },
+  "AbstractGatheredInfo": {
+    "position": {
+      "x": 920,
+      "y": 506
+    }
+  },
+  "ExtsysAccount": {
+    "position": {
+      "x": 1748,
+      "y": 57
+    }
+  },
+  "Project": {
+    "position": {
+      "x": 461,
+      "y": 488
+    },
+    "relations": {
+      "forkOf": [
+        {
+          "x": 555,
+          "y": 419
+        },
+        {
+          "x": 669,
+          "y": 418
+        }
+      ]
+    }
+  },
+  "GatheredInfo": {
+    "position": {
+      "x": 1139,
+      "y": 1163
+    }
+  },
+  "SourcesRepository": {
+    "position": {
+      "x": 108,
+      "y": 347
+    }
+  }
+}

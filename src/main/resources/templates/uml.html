@@ -1,0 +1,84 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<title>UML</title>
+	<div th:replace="head"></div>
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/jointjs/0.9.4/joint.all.css" rel="stylesheet" />
+	<link href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css" rel="stylesheet" />
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jointjs/0.9.4/joint.all.js"></script>
+	
+	<script src="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js"></script>
+	<script th:src="@{/js/uml.js}"></script>
+	
+	<meta name="serverApi" th:content="@{/rest/modelinfo}" />
+	<meta name="layoutsUrl" th:content="@{/diagrams/layouts}" />
+	<meta name="javadocBaseUrl" th:content="@{/javadoc}" />
+</head>
+
+<body data-ng-app="ModelDoc" data-ng-controller="ClassDiagrams" >
+	<div data-loading="" ></div>
+	<div data-menubar="">
+		<form class="navbar-form navbar-left" role="search">
+        	<div class="btn-group">
+	        	<label data-ng-repeat="diagramName in diagramsNames" 
+	        	       class="btn btn-success" 
+	        	       data-ng-model="self.selectedDiagramName" 
+	        	       data-btn-radio="diagramName" 
+	        	>
+	        		{{diagramName}}
+	        	</label>
+    		</div>
+		</form>
+		
+		<form class="navbar-form navbar-left" role="search">
+        	<button type="submit" class="btn btn-default"
+        	        data-ng-click="showLayoutData()"
+        	>
+        		Show Layout Data
+        	</button>
+        	<button type="submit" class="btn btn-default"
+        	        data-ng-click="loadLayoutFromLocalStorage()"
+        	>
+        		Load from localStorage
+        	</button>
+        	<button type="submit" class="btn btn-default"
+        	        data-ng-click="saveLayoutToLocalStorage()"
+        	>
+        		Save to localStorage
+        	</button>
+		</form>
+	</div>
+	
+	<div class="container-fluid" >
+		
+		
+    	<div data-ng-repeat="diagramName in diagramsNames" >
+        	<div data-ng-controller="ClassDiagram" 
+        	     data-name="diagramName" 
+        	>
+        		<input style="width:90vw"
+        		       type="range" 
+        		       min="1" max="100" step="1" 
+        		       data-ng-model="layout.scale"
+        		       data-ng-if="diagramName == selectedDiagramName" 
+        		/>
+				<div data-class-diagram=""
+				     data-name="name" 
+				     data-model-data="modelData"
+				     data-layout-data="layout"
+				     data-dblclick="showJavadoc(type)"
+				     data-ng-if="diagramName == selectedDiagramName" 
+				>
+				</div>
+			</div>
+        </div>
+    	
+    </div>		
+
+</body>
+
+</html>
