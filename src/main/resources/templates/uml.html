@@ -2,16 +2,20 @@
 <html>
 <head>
 	<title>UML</title>
-	<div th:replace="head"></div>
 	
+	<link data-remove-if-full-chdb="" rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.css}"></link>
+	<link data-remove-if-full-chdb="" rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap-theme.css}"></link>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/jointjs/0.9.4/joint.all.css" rel="stylesheet" />
 	<link href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css" rel="stylesheet" />
 	
+	<script data-remove-if-full-chdb="" th:src="@{/webjars/jquery/1.11.2/jquery.js}"></script>
+    <script data-remove-if-full-chdb="" th:src="@{/webjars/angularjs/1.3.8/angular.js}"></script>
+	<script data-remove-if-full-chdb="" th:src="@{/webjars/angularjs/1.3.8/angular-resource.js}"></script>
+	<script data-remove-if-full-chdb="" th:src="@{/webjars/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.js}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jointjs/0.9.4/joint.all.js"></script>
 	
-	<script src="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js"></script>
 	<script th:src="@{/js/uml.js}"></script>
 	
 	<meta name="serverApi" th:content="@{/rest/modelinfo}" />
@@ -20,7 +24,6 @@
 </head>
 
 <body data-ng-app="ModelDoc" data-ng-controller="ClassDiagrams" >
-	<div data-loading="" ></div>
 	<div data-menubar="">
 		<form class="navbar-form navbar-left" role="search">
         	<div class="btn-group">
@@ -60,7 +63,7 @@
         	<div data-ng-controller="ClassDiagram" 
         	     data-name="diagramName" 
         	>
-        		<input style="width:90vw"
+        		<input style="width:97vw"
         		       type="range" 
         		       min="1" max="100" step="1" 
         		       data-ng-model="layout.scale"

@@ -18,7 +18,6 @@ import javax.persistence.metamodel.Attribute.PersistentAttributeType;
 import javax.persistence.metamodel.IdentifiableType;
 import javax.persistence.metamodel.ManagedType;
 
-import org.sorcerers.changedb.MenuEntryLabel;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,7 +41,7 @@ public class JpadocREST {
 		result.setName(type.getJavaType().getSimpleName());
 		result.setFqn(type.getJavaType().getName());
 		
-		type.getDeclaredAttributes().forEach( (Attribute<?, ?> attr) -> {
+		type.getDeclaredAttributes().forEach( (Attribute<?,?> attr) -> {
 			
 			if(
 					PersistentAttributeType.BASIC.equals(attr.getPersistentAttributeType())

@@ -1,4 +1,0 @@
-
-include ":changedb-core"
-
-project(':changedb-core').projectDir = "$rootDir/../changedb" as File

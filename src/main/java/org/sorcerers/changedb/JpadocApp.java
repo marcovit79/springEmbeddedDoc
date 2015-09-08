@@ -1,10 +1,12 @@
 package org.sorcerers.changedb;
 
-import org.sorcerers.changedb.Application;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-public class JpadocApp extends Application {
+@SpringBootApplication
+public class JpadocApp {
 
 	public static void main(String[] args) {
-    	Application.main(args);
+		SpringApplication.run(JpadocApp.class, args);
     }
 }
