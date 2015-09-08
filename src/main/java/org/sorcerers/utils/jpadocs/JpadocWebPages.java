@@ -1,6 +1,6 @@
 package org.sorcerers.utils.jpadocs;
 
-import org.sorcerers.changedb.MenuEntryLabel;
+import org.springframework.context.annotation.Description;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class JpadocWebPages {
 
 	@RequestMapping("/model")
-	@MenuEntryLabel("Model docs")
+	@Description("Model docs")
 	public String getInfos() {
 		return "uml";
 	}

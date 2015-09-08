@@ -301,7 +301,16 @@ ClassDiagram.prototype.extractLayoutData = function ClassDiagram__extractLayoutD
 /*************************************************************************************************/
 /***                                  CLASS DIAGRAM DIRECTIVE                                  ***/
 /*************************************************************************************************/
-var module = angular.module("ModelDoc", ["base", "ui.bootstrap.modal"]);
+var isBasePresent;
+try { 
+	var m = angular.module("base");
+	isBasePresent = !!m;
+} 
+catch(err) {isBasePresent = false}
+var dependenciesList = isBasePresent ? ["base"] : ["ngResource", "ui.bootstrap", "ui.bootstrap.modal"];
+
+
+var module = angular.module("ModelDoc", dependenciesList);
 
 
 module.directive("classDiagram", function() {
@@ -392,12 +401,20 @@ module.directive("classDiagram", function() {
 /*************************************************************************************************/
 /***                    PAGE WITH ONE CLASS DIAGRAM WITH ALL THE MODEL CLASS                   ***/
 /*************************************************************************************************/
+function getMeta(name) {
+	var foundedMetas = jQuery(document).find("head meta[name='" + name + "']");
+	var result = null;
+	if(foundedMetas.length > 0) {
+		result = foundedMetas.attr("content");
+	}
+	return result;	
+}
 
 
 module.controller("ClassDiagrams", [
    	"$scope", "$modal", "$resource",
 	function($scope, $modal, $resource) {
-		$scope.self = $scope;
+   		$scope.self = $scope;
 		
    		$scope.diagramsNames = ['all', 'onlyCore'];
    		$scope.selectedDiagramName = 'all';
