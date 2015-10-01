@@ -1,70 +1,44 @@
 {
-  "SourcecodeTag": {
+  "OrgPerson": {
     "position": {
-      "x": 553,
-      "y": 722
+      "x": 408,
+      "y": 1707
     }
   },
-  "SourcesRepository": {
+  "ReviewInlineComment": {
     "position": {
-      "x": 1366,
-      "y": 728
+      "x": 3851,
+      "y": 1050
     }
   },
-  "ProjectsHub": {
+  "ReviewPatchSet": {
     "position": {
-      "x": 2072,
-      "y": 617
+      "x": 3394,
+      "y": 765
     }
   },
-  "IssueEdit": {
+  "ReviewComment": {
     "position": {
-      "x": 2150,
-      "y": 2255
+      "x": 3028,
+      "y": 592
     }
   },
-  "GatheredInfo": {
+  "ClassificationKeyword": {
     "position": {
-      "x": 2376,
-      "y": 790
+      "x": 413,
+      "y": 2245
     }
   },
-  "ReviewChangedFile": {
+  "SourcecodeFileVersion": {
     "position": {
-      "x": 3847,
-      "y": 761
+      "x": 639,
+      "y": 1007
     }
   },
-  "IssueComment": {
+  "ReviewAction": {
     "position": {
-      "x": 2552,
-      "y": 1672
-    }
-  },
-  "SourcecodeBranch": {
-    "position": {
-      "x": 749,
-      "y": 1330
-    }
-  },
-  "BaseComment": {
-    "position": {
-      "x": 3093,
-      "y": 1122
-    }
-  },
-  "IssueAttributeEdit": {
-    "position": {
-      "x": 2134,
-      "y": 2504
-    },
-    "relations": {
-      "project": [
-        {
-          "x": 1740,
-          "y": 2563
-        }
-      ]
+      "x": 2780,
+      "y": 713
     }
   },
   "DynaGatheredInfo": {
@@ -97,58 +71,10 @@
       ]
     }
   },
-  "ExtsysAccount": {
+  "SourcecodeBranch": {
     "position": {
-      "x": 1880,
-      "y": 1015
-    }
-  },
-  "ReviewPatchSet": {
-    "position": {
-      "x": 3394,
-      "y": 765
-    }
-  },
-  "SourcecodeCheckin": {
-    "position": {
-      "x": 77,
-      "y": 753
-    }
-  },
-  "Project": {
-    "position": {
-      "x": 1528,
-      "y": 374
-    }
-  },
-  "ReviewInlineComment": {
-    "position": {
-      "x": 3851,
-      "y": 1050
-    }
-  },
-  "BaseMentionRef": {
-    "position": {
-      "x": 3564,
+      "x": 749,
       "y": 1330
-    }
-  },
-  "SourcecodeFileVersion": {
-    "position": {
-      "x": 639,
-      "y": 1007
-    }
-  },
-  "Review": {
-    "position": {
-      "x": 2899,
-      "y": 232
-    }
-  },
-  "ReviewComment": {
-    "position": {
-      "x": 3028,
-      "y": 592
     }
   },
   "Product": {
@@ -157,34 +83,22 @@
       "y": 402
     }
   },
-  "OrgPerson": {
+  "Project": {
     "position": {
-      "x": 408,
-      "y": 1707
+      "x": 1528,
+      "y": 374
     }
   },
-  "IssueVersion": {
+  "SourcesRepository": {
     "position": {
-      "x": 3457,
-      "y": 1690
+      "x": 1366,
+      "y": 728
     }
   },
-  "AbstractGatheredInfo": {
+  "ExtsysAccount": {
     "position": {
-      "x": 1905,
-      "y": 94
-    }
-  },
-  "ReviewAction": {
-    "position": {
-      "x": 2780,
-      "y": 713
-    }
-  },
-  "ExternalSystem": {
-    "position": {
-      "x": 1762,
-      "y": 625
+      "x": 1880,
+      "y": 1015
     }
   },
   "IssueAttachment": {
@@ -217,6 +131,110 @@
           "y": 1412
         }
       ]
+    }
+  },
+  "ReviewChangedFile": {
+    "position": {
+      "x": 3847,
+      "y": 761
+    }
+  },
+  "ClassificationEntityType": {
+    "position": {
+      "x": 416,
+      "y": 2508
+    }
+  },
+  "BaseComment": {
+    "position": {
+      "x": 3093,
+      "y": 1122
+    }
+  },
+  "ProjectsHub": {
+    "position": {
+      "x": 2072,
+      "y": 617
+    }
+  },
+  "ExternalSystem": {
+    "position": {
+      "x": 1762,
+      "y": 625
+    }
+  },
+  "SourcecodeCheckin": {
+    "position": {
+      "x": 77,
+      "y": 753
+    }
+  },
+  "GatheredInfo": {
+    "position": {
+      "x": 2376,
+      "y": 790
+    }
+  },
+  "SourcecodeTag": {
+    "position": {
+      "x": 553,
+      "y": 722
+    }
+  },
+  "BaseMentionRef": {
+    "position": {
+      "x": 3564,
+      "y": 1330
+    }
+  },
+  "IssueVersion": {
+    "position": {
+      "x": 3457,
+      "y": 1690
+    }
+  },
+  "IssueAttributeEdit": {
+    "position": {
+      "x": 2134,
+      "y": 2504
+    },
+    "relations": {
+      "project": [
+        {
+          "x": 1740,
+          "y": 2563
+        }
+      ]
+    }
+  },
+  "AbstractGatheredInfo": {
+    "position": {
+      "x": 1905,
+      "y": 94
+    }
+  },
+  "ClassificationTag": {
+    "position": {
+      "x": 825,
+      "y": 2348
+    }
+  },
+  "Review": {
+    "position": {
+      "x": 2899,
+      "y": 232
+    }
+  },
+  "IssueEdit": {
+    "position": {
+      "x": 2150,
+      "y": 2255
+    }
+  },
+  "IssueComment": {
+    "position": {
+      "x": 2552,
+      "y": 1672
     }
   }
 }
