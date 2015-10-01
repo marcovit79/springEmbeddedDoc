@@ -6,18 +6,20 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
-import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.OneToMany;
-import javax.persistence.PersistenceContext;
 import javax.persistence.metamodel.Attribute;
 import javax.persistence.metamodel.Attribute.PersistentAttributeType;
 import javax.persistence.metamodel.IdentifiableType;
 import javax.persistence.metamodel.ManagedType;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,15 +27,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class JpadocREST {
 
-	@PersistenceContext
-	private EntityManager em;
+	@Autowired
+	private List<EntityManagerFactory> emfs;
 	
 	
 	private Set<TypeInfo> infos;
 	
 	@PostConstruct
 	private void readMetaModel() {
-		infos = em.getMetamodel().getManagedTypes().stream().map(this::fromType2Info).collect(Collectors.toSet());
+		infos = new HashSet<TypeInfo>();
+		
+		for(EntityManagerFactory emf: emfs) {
+			Set<TypeInfo> info = emf.getMetamodel()
+					.getManagedTypes()
+					.stream()
+					.map(this::fromType2Info)
+					.collect(Collectors.toSet());
+			infos.addAll(info);
+		}
+				
 	}
 	
 	private TypeInfo fromType2Info(ManagedType<?> type) {
