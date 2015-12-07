@@ -1,0 +1,20 @@
+{
+  "ClassificationTag": {
+    "position": {
+      "x": 208,
+      "y": 180
+    }
+  },
+  "ClassificationEntityType": {
+    "position": {
+      "x": 816,
+      "y": 430
+    }
+  },
+  "ClassificationKeyword": {
+    "position": {
+      "x": 759,
+      "y": 13
+    }
+  }
+}

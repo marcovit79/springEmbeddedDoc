@@ -101,9 +101,13 @@ ClassDiagram.prototype.drawGraph = function ClassDiagram__computeGraph(modelData
 	relationList.forEach( function(rel) {
 		
 		rel.fromId = classesJointJsModelsMap[rel.from].id;
-		rel.toId = classesJointJsModelsMap[rel.to].id;
 		
-		self.drawOneRelation(rel, layoutData);
+		var destination = classesJointJsModelsMap[rel.to];
+		if(destination != null) {
+			
+			rel.toId = destination.id;
+			self.drawOneRelation(rel, layoutData);
+		}
 	})	
 }
 
@@ -328,7 +332,11 @@ module.directive("classDiagram", function() {
 	
 	var filterMap = {
 		all: null,
-		onlyCore: ['extsys', 'product', 'utils']	
+		onlyCore: ['extsys', 'product', 'utils'],
+		codeReviews: ['review'],
+		sourceCode: ['sourcecode'],
+		issueTracking: ['issuetracking'],
+		classifications: ['classifications']
 	}
 	
 	return {
@@ -416,7 +424,15 @@ module.controller("ClassDiagrams", [
 	function($scope, $modal, $resource) {
    		$scope.self = $scope;
 		
-   		$scope.diagramsNames = ['all', 'onlyCore'];
+   		$scope.diagramsNames = [
+   		                        'all', 
+   		                        'onlyCore', 
+   		                        'codeReviews', 
+   		                        'sourceCode', 
+   		                        'issueTracking', 
+   		                        'classifications'
+   		                      ];
+   		
    		$scope.selectedDiagramName = 'all';
    		
    		$scope.diagramControllers = {};

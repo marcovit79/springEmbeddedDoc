@@ -1,0 +1,46 @@
+{
+  "ReviewPatchSet": {
+    "position": {
+      "x": 460,
+      "y": 377
+    },
+    "relations": {
+      "review": [
+        {
+          "x": 373,
+          "y": 318
+        }
+      ]
+    }
+  },
+  "ReviewChangedFile": {
+    "position": {
+      "x": 465,
+      "y": 688
+    }
+  },
+  "ReviewComment": {
+    "position": {
+      "x": 35,
+      "y": 463
+    }
+  },
+  "ReviewAction": {
+    "position": {
+      "x": 1120,
+      "y": 115
+    }
+  },
+  "Review": {
+    "position": {
+      "x": 35,
+      "y": 100
+    }
+  },
+  "ReviewInlineComment": {
+    "position": {
+      "x": 39,
+      "y": 729
+    }
+  }
+}

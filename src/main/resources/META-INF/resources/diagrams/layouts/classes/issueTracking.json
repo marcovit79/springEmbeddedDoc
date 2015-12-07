@@ -1,0 +1,68 @@
+{
+  "IssueLink": {
+    "position": {
+      "x": 3,
+      "y": 200
+    },
+    "relations": {
+      "targetIssue": [
+        {
+          "x": 126,
+          "y": 137
+        },
+        {
+          "x": 363,
+          "y": 138
+        }
+      ]
+    }
+  },
+  "Issue": {
+    "position": {
+      "x": 387,
+      "y": 110
+    },
+    "relations": {
+      "links": [
+        {
+          "x": 371,
+          "y": 353
+        },
+        {
+          "x": 123,
+          "y": 351
+        }
+      ]
+    }
+  },
+  "IssueVersion": {
+    "position": {
+      "x": 383,
+      "y": 593
+    }
+  },
+  "IssueAttributeEdit": {
+    "position": {
+      "x": 781,
+      "y": 22
+    }
+  },
+  "IssueAttachment": {
+    "position": {
+      "x": 1000,
+      "y": 385
+    }
+  },
+  "IssueComment": {
+    "position": {
+      "x": 1004,
+      "y": 679
+    }
+  },
+  "IssueEdit": {
+    "position": {
+      "x": 776,
+      "y": 245
+    }
+  }
+}
