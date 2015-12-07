@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head >
+	<title>Swagger UI - Rest API list</title>
+	
+	<link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css' />
+	<link th:href="@{webjars/swagger-ui/2.0.12/css/screen.css}" rel='stylesheet' type='text/css' />
+	<script th:src="@{webjars/swagger-ui/2.0.12/lib/shred.bundle.js}" type="text/javascript" ></script>
+	<script th:src="@{webjars/swagger-ui/2.0.12/lib/jquery-1.8.0.min.js}" type='text/javascript'></script>
+	<script th:src="@{webjars/swagger-ui/2.0.12/lib/jquery.slideto.min.js}" type='text/javascript'></script>
+	<script th:src="@{webjars/swagger-ui/2.0.12/lib/jquery.wiggle.min.js}" type='text/javascript'></script>
+	<script th:src="@{webjars/swagger-ui/2.0.12/lib/jquery.ba-bbq.min.js}" type='text/javascript'></script>
+	<script th:src="@{webjars/swagger-ui/2.0.12/lib/handlebars-1.0.0.js}" type='text/javascript'></script>
+	<script th:src="@{webjars/swagger-ui/2.0.12/lib/underscore-min.js}" type='text/javascript'></script>
+	<script th:src="@{webjars/swagger-ui/2.0.12/lib/backbone-min.js}" type='text/javascript'></script>
+	<script th:src="@{webjars/swagger-ui/2.0.12/lib/swagger.js}" type='text/javascript'></script>
+	<script th:src="@{webjars/swagger-ui/2.0.12/swagger-ui.js}" type='text/javascript'></script>
+	<script th:src="@{webjars/swagger-ui/2.0.12/lib/highlight.7.3.pack.js}" type='text/javascript'></script>
+	
+	<!-- enabling this will enable oauth2 implicit scope support -->
+	<!-- 
+	<script th:src="@{webjars/swagger-ui/2.0.12/lib/swagger-oauth.js}" type='text/javascript'></script>
+	 -->
+	 
+	<meta name="sdocRestApi" th:content="@{/api-docs}"></meta>
+	
+	<script type="text/javascript">
+	// <![CDATA[
+	    function getMeta(name) {
+	    	var foundedMetas = jQuery(document).find("head meta[name='" + name + "']");
+	    	var result = null;
+	    	if(foundedMetas.length > 0) {
+	    		result = foundedMetas.attr("content");
+	    	}
+	    	return result;	
+	    }
+	    
+		jQuery(function () {
+			var token = getMeta("_csrf");
+			var header = getMeta("_csrf_header");
+			jQuery(document).ajaxSend(function(e, xhr, options) {
+				xhr.setRequestHeader(header, token);
+			});
+		});
+	    
+	    
+		jQuery(function() {
+			window.swaggerUi = new SwaggerUi({
+				url : window.location.origin
+						+ getMeta("sdocRestApi"),
+				dom_id : "swagger-ui-container",
+				supportedSubmitMethods : [ 'get', 'post', 'put', 'delete' ],
+				onComplete : function(swaggerApi, swaggerUi) {
+					log("Loaded SwaggerUI");
+					
+					if (typeof initOAuth == "function") {
+	
+						initOAuth({
+							clientId : "your-client-id",
+							realm : "your-realms",
+							appName : "your-app-name"
+						});
+	
+					}
+					$('pre code').each(function(i, e) {
+						hljs.highlightBlock(e)
+					});
+				},
+				onFailure : function(data) {
+					log("Unable to Load SwaggerUI");
+				},
+				docExpansion : "none",
+				authorizations: {
+					someName: function() {
+						var token = getMeta("_csrf");
+						var header = getMeta("_csrf_header");
+						this.headers[header] = token;
+						return true;
+					}
+				}
+			});
+			
+			var token = getMeta("_csrf");
+			var header = getMeta("_csrf_header");
+			
+			window.authorizations
+			.add("csrf", new ApiKeyAuthorization(header,
+					token, "header"));
+			
+			jQuery('#input_apiKey').change(function() {
+				var key = $('#input_apiKey')[0].value;
+				log("key: " + key);
+				if (key && key.trim() != "") {
+					log("added key " + key);
+					window.authorizations
+							.add("key", new ApiKeyAuthorization("api_key",
+									key, "query"));
+				}
+			})
+			window.swaggerUi.load();
+		});
+		
+	// ]]>
+	</script>
+</head>
+
+<body class="swagger-section" ng-app="base">
+	<div data-menubar=""></div>
+	<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
+	<div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+</body>
+</html>
